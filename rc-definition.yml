@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myapp-rc
+  labels:
+    app: myapp
+    type: frontend
+spec:
+  template:
+    metadata:
+      name: mypod-app
+      labels:
+        app: myapp
+        type: frontendpodd
+    spec:
+      containers:
+        - name: redis-latest
+          image: redis:latest
+  replicas: 3
